@@ -1,26 +1,31 @@
+import ReactModal from "react-modal";
 import css from "./ImageModal.module.css";
 
-const ImageModal = ({ photo, onClose }) => {
-  const handleBackdropClick = (event) => {
-    if (event.target === event.currentTarget) {
-      onClose();
-    }
-  };
+ReactModal.setAppElement("#root");
+
+const ImageModal = ({ photo, isOpen, onClose }) => {
+  if (!photo) return null;
 
   return (
-    <div className={css.backdrop} onClick={handleBackdropClick}>
-      <div className={css.content} onClick={(e) => e.stopPropagation()}>
+    <ReactModal
+      isOpen={isOpen}
+      onRequestClose={onClose}
+      className={css.modal}
+      overlayClassName={css.overlay}
+      shouldCloseOnOverlayClick={true}
+    >
+      <div className={css.content}>
         <img
           className={css.img}
           src={photo.urls.regular}
           alt={photo.alt_description}
         />
-        <p>{photo.description || "No description available"}</p>{" "}
+        <p>{photo.description || "No description available"}</p>
         <button className={css.button} onClick={onClose}>
           Close
         </button>
       </div>
-    </div>
+    </ReactModal>
   );
 };
 
