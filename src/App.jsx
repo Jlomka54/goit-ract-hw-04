@@ -46,6 +46,18 @@ const App = () => {
     searchPhotoForGallery();
   }, [searchValue, page]);
 
+  useEffect(() => {
+    if (page > 1) {
+      setTimeout(() => {
+        window.scrollBy({
+          top: window.innerHeight,
+
+          behavior: "smooth",
+        });
+      }, 100);
+    }
+  }, [page]);
+
   const loadMorePhoto = () => {
     setPages(page + 1);
   };
