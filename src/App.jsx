@@ -4,10 +4,11 @@ import SearchBar from "./components/SearchBar/SearchBar";
 import { FetchPhoto } from "./api.js";
 import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
+
 import Loader from "./components/Loader/Loader.jsx";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn.jsx";
 import ImageModal from "./components/ImageModal/ImageModal.jsx";
-import ErrorMessage from "./components/ErrorMessage/ErrorMEssage.jsx";
+import ErrorMessage from "./components/ErrorMessage/ErrorMessage.jsx";
 
 const App = () => {
   const [searchValue, setSearchValue] = useState(null);
