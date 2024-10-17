@@ -67,11 +67,7 @@ const App = () => {
     eve.preventDefault();
     const form = eve.target.elements;
     const userValue = form.searchValue.value.trim();
-    if (userValue.length === 0) {
-      toast.error("Please enter value");
 
-      return;
-    }
     setSearchValue(userValue);
 
     setPages(1);
